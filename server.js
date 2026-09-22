@@ -3,10 +3,15 @@ const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 const { z } = require('zod');
-
+const cors = require('cors');
 // 1. Initialize Configuration & Express App
 dotenv.config();
 const app = express();
+app.use(cors({
+    origin: "*",
+    methods: ["POST", "GET"],
+    allowedHeaders: "*"
+}))
 app.use(express.json());
 
 // ==========================================
